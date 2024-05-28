@@ -1,66 +1,23 @@
-## Foundry
+# Transient Vibes
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A smol Foundry repo to mess around with the new transient storage (`TSTORE` and `TLOAD`) opcodes in Solidity.
 
-Foundry consists of:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Foundry Config
 
-## Documentation
+<!-- TODO -->
 
-https://book.getfoundry.sh/
 
-## Usage
+## EVM Chains Supporting Transient Storage
 
-### Build
+- [x] Ethereum Mainnet
+- [x] Base
+- [x] Optimism
+- [x] Arbitrum One
+- [x] Polygon
 
-```shell
-$ forge build
-```
+See [EVM Diff's Opcodes Support Table](https://www.evmdiff.com/features?feature=opcodes) for latest info.
 
-### Test
+## Resources
 
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+ - [The Right Way To Use Transient Storage](https://www.edenblock.com/post/the-right-way-to-use-transient-storage-eip-1153)
