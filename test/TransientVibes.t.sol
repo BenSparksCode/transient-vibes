@@ -17,10 +17,34 @@ contract TransientVibesTest is Test {
         spammer = new Spammer();
     }
 
+    function test_tstore_x1() public {
+        uint256 iterations = 1;
+        bytes memory callData = abi.encodeCall(transientVibes.setBalance, 1);
+        spammer.spam(address(transientVibes), callData, iterations);
+    }
+
+    function test_tstore_x10() public {
+        uint256 iterations = 10;
+        bytes memory callData = abi.encodeCall(transientVibes.setBalance, 1);
+        spammer.spam(address(transientVibes), callData, iterations);
+    }
+
     function test_tstore_x100() public {
         uint256 iterations = 100;
         bytes memory callData = abi.encodeCall(transientVibes.setBalance, 1);
         spammer.spam(address(transientVibes), callData, iterations);
+    }
+
+    function test_sstore_x1() public {
+        uint256 iterations = 1;
+        bytes memory callData = abi.encodeCall(nonTransientVibes.setBalance, 1);
+        spammer.spam(address(nonTransientVibes), callData, iterations);
+    }
+
+    function test_sstore_x10() public {
+        uint256 iterations = 10;
+        bytes memory callData = abi.encodeCall(nonTransientVibes.setBalance, 1);
+        spammer.spam(address(nonTransientVibes), callData, iterations);
     }
 
     function test_sstore_x100() public {
@@ -29,10 +53,34 @@ contract TransientVibesTest is Test {
         spammer.spam(address(nonTransientVibes), callData, iterations);
     }
 
+    function test_tload_x1() public {
+        uint256 iterations = 1;
+        bytes memory callData = abi.encodeWithSelector(transientVibes.getBalance.selector);
+        spammer.spam(address(transientVibes), callData, iterations);
+    }
+
+    function test_tload_x10() public {
+        uint256 iterations = 10;
+        bytes memory callData = abi.encodeWithSelector(transientVibes.getBalance.selector);
+        spammer.spam(address(transientVibes), callData, iterations);
+    }
+
     function test_tload_x100() public {
         uint256 iterations = 100;
         bytes memory callData = abi.encodeWithSelector(transientVibes.getBalance.selector);
         spammer.spam(address(transientVibes), callData, iterations);
+    }
+
+    function test_sload_x1() public {
+        uint256 iterations = 1;
+        bytes memory callData = abi.encodeWithSelector(nonTransientVibes.getBalance.selector);
+        spammer.spam(address(nonTransientVibes), callData, iterations);
+    }
+
+    function test_sload_x10() public {
+        uint256 iterations = 10;
+        bytes memory callData = abi.encodeWithSelector(nonTransientVibes.getBalance.selector);
+        spammer.spam(address(nonTransientVibes), callData, iterations);
     }
 
     function test_sload_x100() public {
